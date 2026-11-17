@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Desinformación y pensamiento crítico | Mente Clara</title>
+  <style>
+    :root { --tinta:#1E2A5E; --naranja:#D9621C; --dorado:#B8860B; --hueso:#FBFAF6; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family:"Segoe UI",Roboto,Arial,sans-serif; background:var(--hueso); color:var(--tinta); line-height:1.7; font-size:1.08rem; }
+    .menu { background:var(--tinta); }
+    .menu nav { max-width:960px; margin:0 auto; padding:.4rem 1rem; }
+    .menu ul { list-style:none; display:flex; flex-wrap:wrap; justify-content:center; gap:.2rem 1.4rem; margin:0; padding:0; }
+    .menu a { color:var(--hueso); text-decoration:none; font-weight:600; padding:.45rem 0; display:inline-block; border-bottom:3px solid transparent; }
+    .menu a:hover, .menu a[aria-current="page"] { border-bottom-color:var(--naranja); }
+    .portada { text-align:center; padding:1.2rem 1rem 0; }
+    .logo { display:inline-flex; align-items:center; gap:1rem; text-decoration:none; }
+    .logo svg { width:80px; height:auto; }
+    .logo .nombre { font-family:"Century Gothic","Futura","Trebuchet MS",sans-serif; font-weight:700; font-size:1.8rem; letter-spacing:.25em; line-height:1.1; text-align:left; }
+    .logo .mente { color:var(--naranja); }
+    .logo .clara { color:var(--dorado); }
+    .olas { display:block; width:100%; height:30px; margin-top:.8rem; }
+    main { max-width:760px; margin:0 auto; padding:0 1rem 3rem; }
+    h1 { font-size:clamp(1.7rem,5vw,2.4rem); line-height:1.2; margin:1rem 0 .5rem; }
+    h2 { font-size:1.5rem; margin:2rem 0 .6rem; padding-bottom:.3rem; border-bottom:3px solid var(--dorado); }
+    .entradilla { font-size:1.2rem; font-weight:600; }
+    .dato { background:#fff; border:2px solid var(--tinta); border-left:10px solid var(--naranja); border-radius:8px; padding:1rem 1.2rem; margin:1.5rem 0; }
+    .dato strong { display:block; font-size:1.3rem; }
+    .dato small { display:block; margin-top:.4rem; }
+    .consejos { background:#fff; border:3px solid var(--tinta); border-radius:12px; padding:1rem 1.4rem 1.2rem; margin:2rem 0; }
+    .consejos h2 { border:0; margin-top:.5rem; }
+    .consejos ul { list-style:none; padding:0; margin:0; }
+    .consejos li { padding:.5rem 0 .5rem 2rem; position:relative; border-bottom:1px solid rgba(30,42,94,.2); }
+    .consejos li:last-child { border-bottom:0; }
+    .consejos li::before { content:"✔"; position:absolute; left:0; color:var(--naranja); font-weight:700; }
+    .fuentes { font-size:.95rem; }
+    .boton { display:inline-block; background:var(--naranja); color:var(--tinta); font-weight:800; font-size:1.2rem; padding:.8rem 1.8rem; border:3px solid var(--tinta); border-radius:999px; text-decoration:none; }
+    a { color:var(--tinta); }
+    :focus-visible { outline:3px solid var(--naranja); outline-offset:2px; }
+    footer { background:var(--tinta); color:var(--hueso); text-align:center; padding:1.5rem 1rem; font-size:.95rem; border-top:6px solid var(--dorado); }
+    footer p { margin:.2rem 0; } footer a { color:var(--hueso); }
+    h3 { font-size:1.2rem; margin:1.2rem 0 .3rem; }
+    .consejos ol { margin:0; padding-left:1.4rem; }
+    .consejos ol li { padding-left:.4rem; }
+    .consejos ol li::before { content:none; }
+    details { background:#fff; border:2px solid var(--tinta); border-radius:8px; padding:.6rem 1rem; margin:.8rem 0; }
+    summary { cursor:pointer; font-weight:700; }
+    .recurso { background:#fff; border:2px solid var(--tinta); border-left:8px solid var(--dorado); border-radius:8px; padding:.8rem 1.1rem; margin:1rem 0; }
+    .recurso h3 { margin:.1rem 0 .3rem; }
+    .recurso p { margin:.3rem 0; }
+    .etiqueta { display:inline-block; border:2px solid var(--tinta); border-radius:999px; padding:0 .7rem; font-size:.85rem; font-weight:700; }
+    .video { position:relative; padding-bottom:56.25%; height:0; margin:.6rem 0; }
+    .video iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+    figure { margin:1.5rem 0; } figure img { max-width:100%; height:auto; border-radius:8px; }
+  </style>
+</head>
+<body>
+<div class="menu">
+  <nav aria-label="Menú principal">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="sueno.html">Descanso</a></li>
+      <li><a href="concentracion.html">Concentración</a></li>
+      <li><a href="ciberconvivencia.html">Ciberconvivencia</a></li>
+      <li><a href="desinformacion.html">Desinformación</a></li>
+      <li><a href="recursos.html">Recursos</a></li>
+      <li><a href="encuesta.html">Encuesta</a></li>
+    </ul>
+  </nav>
+</div>
+
+<header class="portada">
+  <a class="logo" href="index.html" aria-label="Mente Clara, ir al inicio">
+    <svg viewBox="0 0 120 84" role="img" aria-label="Logotipo de Mente Clara: un sol sobre las olas">
+      <g stroke="#D9621C" stroke-width="4.5" stroke-linecap="round">
+        <line x1="60" y1="25" x2="60" y2="12"/><line x1="44.5" y1="29.9" x2="37.6" y2="19.6"/><line x1="75.5" y1="29.9" x2="82.4" y2="19.6"/>
+        <line x1="34.6" y1="42.8" x2="22.8" y2="38.2"/><line x1="85.4" y1="42.8" x2="97.2" y2="38.2"/>
+      </g>
+      <path d="M38 54 A22 22 0 0 1 82 54 Z" fill="#B8860B"/>
+      <g fill="none" stroke="#B8860B" stroke-width="3.8" stroke-linecap="round">
+        <path d="M22 64 q9.5 -9 19 0 t19 0 t19 0 t19 0"/><path d="M22 74 q9.5 -9 19 0 t19 0 t19 0 t19 0"/>
+      </g>
+    </svg>
+    <span class="nombre"><span class="mente">MENTE</span><br><span class="clara">CLARA</span></span>
+  </a>
+  <svg class="olas" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 20 Q 50 0 100 20 T 200 20 T 300 20 T 400 20 T 500 20 T 600 20 T 700 20 T 800 20 T 900 20 T 1000 20 T 1100 20 T 1200 20" fill="none" stroke="#B8860B" stroke-width="3"/>
+  </svg>
+</header>
+
+<main>
+
+  <h1>Antes de difundir, comprueba</h1>
+  <p class="entradilla">Reenviar es muy fácil, y por eso los bulos recorren tantas pantallas. Con unos pocos pasos puedes frenarlos.</p>
+
+  <h2>¿Qué está pasando?</h2>
+  <p>Un bulo es una información falsa, también llamada <em>fake news</em>, que se hace pasar por verdadera. Suelen tener titulares muy llamativos, pensados para que los compartamos sin pensar. A veces llevan una foto real, pero de otro momento. Los <em>deepfakes</em>, en cambio, son imágenes, vídeos o audios creados o manipulados con inteligencia artificial para que parezca que alguien dice o hace algo que nunca dijo ni hizo.</p>
+
+  <div class="dato">
+    <strong>Un estudio del MIT publicado en <em>Science</em> en 2018 concluyó que las noticias falsas se propagan más rápido que las verdaderas en Twitter: tenían un 70 % más de probabilidad de ser retuiteadas.</strong>
+    <small>Fuente: Vosoughi, Roy y Aral (2018), «The Spread of True and False News Online», <em>Science</em>. <a href="https://news.mit.edu/2018/study-twitter-false-news-travels-faster-true-stories-0308">Resumen en MIT News</a></small>
+  </div>
+
+  <h2>¿Por qué importa?</h2>
+  <p>Todos hemos recibido un mensaje «de un amigo» que decía algo exagerado o extraño. Si lo compartimos sin comprobar que es verídico, nos convertimos en parte de la cadena. Y no es cuestión de astucia, los bulos están diseñados para engañar a cualquiera. Lo importante es tener un método. Según INCIBE, los adolescentes pueden aprender a detectar bulos si conocen las técnicas que usan quienes los crean y sus principales características.</p>
+
+  <section class="consejos">
+    <h2>Haz esto si te ocurre: tu método de 5 pasos</h2>
+    <ol>
+      <li>Si te llama la atención, espera antes de difundirlo.</li>
+      <li>Mira quién lo dice: ¿hay autor, fecha y un medio conocido?</li>
+      <li>Busca el titular en otros medios. Si solo aparece en webs raras, desconfía.</li>
+      <li>Comprueba la imagen con una búsqueda en Google Imágenes, para ver si es de otro momento.</li>
+      <li>Consulta un verificador, como Maldita.es, Newtral o EFE Verifica, antes de compartirlo.</li>
+    </ol>
+  </section>
+
+  <h2>Mini-reto: ¿real o falso?</h2>
+  <p>Los dos casos de este reto son <strong>falsos</strong>: hoy se sabe que lo son. Antes de abrir cada respuesta, piensa qué paso de tu método habrías aplicado.</p>
+  <details>
+    <summary>Caso 1: el papa con el abrigo blanco (2023)</summary>
+    <p>En marzo de 2023 se hizo viral una foto del papa Francisco paseando con un enorme abrigo blanco acolchado. Muchísima gente la compartió pensando que era real.</p>
+    <p><strong>Era falsa:</strong> la imagen estaba creada con inteligencia artificial (Midjourney) y se publicó por primera vez el 24 de marzo de 2023 en un foro de Reddit. Una búsqueda inversa de la imagen permitió llegar a su origen, y algunos detalles, como las manos o el crucifijo, no salían bien. Con tu método: pasos 3, 4 y 5.</p>
+    <p>Fuente: Maldita.es, «Las imágenes del papa Francisco con un abrigo de plumas blanco no son reales: han sido creadas con inteligencia artificial».</p>
+  </details>
+  <details>
+    <summary>Caso 2: el monstruo del lago Ness (1934)</summary>
+    <p>El 21 de abril de 1934, el periódico Daily Mail publicó la «foto del cirujano»: una criatura de cuello largo saliendo del lago Ness. Durante unos 60 años mucha gente la creyó auténtica.</p>
+    <p><strong>Era falsa:</strong> en 1994 un escultor que había participado confesó que era un montaje, con una cabeza esculpida colocada sobre un submarino de juguete y fotografiada desde lejos. Con tu método: pasos 2 y 3.</p>
+    <p>Fuente: NOVA (PBS), «Nessie: The Legend» y Gizmodo en español, «La foto del monstruo del lago Ness engañó al mundo durante 60 años».</p>
+  </details>
+
+  <p><a class="boton" href="encuesta.html">Cuéntanos cómo lo haces tú: encuesta</a></p>
+
+  <section class="fuentes">
+    <h2>Fuentes</h2>
+    <ul>
+      <li>Vosoughi, S., Roy, D. y Aral, S. (2018). «The Spread of True and False News Online». <em>Science</em>. Resumen: <a href="https://news.mit.edu/2018/study-twitter-false-news-travels-faster-true-stories-0308">https://news.mit.edu/2018/study-twitter-false-news-travels-faster-true-stories-0308</a></li>
+      <li>INCIBE. «La llave contra la desinformación de los menores en Internet». 26/04/2021. <a href="https://www.incibe.es/menores/blog/la-llave-contra-la-desinformacion-de-los-menores-en-internet">https://www.incibe.es/menores/blog/la-llave-contra-la-desinformacion-de-los-menores-en-internet</a></li>
+      <li>INCIBE (OSI). «Pasos para contrastar una noticia». 12/01/2022. <a href="https://www.incibe.es/ciudadania/blog/pasos-para-contrastar-una-noticia">https://www.incibe.es/ciudadania/blog/pasos-para-contrastar-una-noticia</a></li>
+      <li>Maldita.es. «Educación: la caja de herramientas de verificación para que no te la cuelen». <a href="https://maldita.es/malditobulo/educacion-la-caja-de-herramientas-de-verificacion-para-que-no-te-la-cuelen">https://maldita.es/malditobulo/educacion-la-caja-de-herramientas-de-verificacion-para-que-no-te-la-cuelen</a></li>
+      <li>Maldita.es. «Las imágenes del papa Francisco con un abrigo de plumas blanco no son reales». 27/03/2023. <a href="https://maldita.es/malditobulo/20230327/papa-francisco-abrigo-plumas-bulo-inteligencia-artificial/">https://maldita.es/malditobulo/20230327/papa-francisco-abrigo-plumas-bulo-inteligencia-artificial/</a></li>
+      <li>NOVA (PBS). «Nessie: The Legend». <a href="https://www.pbs.org/wgbh/nova/lochness/legend3.html">https://www.pbs.org/wgbh/nova/lochness/legend3.html</a></li>
+      <li>Gizmodo en español. «La foto del monstruo del lago Ness engañó al mundo durante 60 años y su verdadera historia salió a la luz demasiado tarde». <a href="https://es.gizmodo.com/la-foto-del-monstruo-del-lago-ness-engano-al-mundo-durante-60-anos-y-su-verdadera-historia-salio-a-la-luz-demasiado-tarde-2000263979">Ver artículo</a></li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  <p><strong>MENTE CLARA</strong> · Claridad en la red, calma en tu cabeza</p>
+  <p>Lara, Paula, Elsa y Lucía · TIC II, 2.º Bachillerato · 2026</p>
+  <p><a href="creditos.html">Fuentes y créditos</a></p>
+</footer>
+
+<script>
+const archivo = location.pathname.split("/").pop() || "index.html";
+document.querySelectorAll(".menu a").forEach((a) => {
+  if (a.getAttribute("href") === archivo) a.setAttribute("aria-current", "page");
+});
+</script>
+</body>
+</html>

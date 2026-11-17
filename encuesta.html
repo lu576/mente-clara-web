@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Encuesta | Mente Clara</title>
+  <meta name="description" content="Encuesta anónima sobre hábitos digitales: sueño, concentración, ciberconvivencia y desinformación.">
+  <style>
+    :root { --tinta:#1E2A5E; --naranja:#D9621C; --dorado:#B8860B; --hueso:#FBFAF6; --error:#9B1C1C; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family:"Segoe UI",Roboto,Arial,sans-serif; background:var(--hueso); color:var(--tinta); line-height:1.6; font-size:1.05rem; }
+
+    /* Menú superior */
+    .menu { background:var(--tinta); }
+    .menu nav { max-width:960px; margin:0 auto; padding:.4rem 1rem; }
+    .menu ul { list-style:none; display:flex; flex-wrap:wrap; justify-content:center; gap:.2rem 1.4rem; margin:0; padding:0; }
+    .menu a { color:var(--hueso); text-decoration:none; font-weight:600; padding:.45rem 0; display:inline-block; border-bottom:3px solid transparent; }
+    .menu a:hover, .menu a[aria-current="page"] { border-bottom-color:var(--naranja); }
+
+    /* Portada con logo */
+    .portada { text-align:center; padding:2rem 1rem 0; }
+    .logo { display:inline-block; text-decoration:none; }
+    .logo svg { width:150px; height:auto; display:block; margin:0 auto; }
+    .logo .nombre { display:block; font-family:"Century Gothic","Futura","Trebuchet MS",sans-serif; font-weight:700; font-size:clamp(2rem,8vw,3rem); letter-spacing:.32em; line-height:1.1; padding-left:.32em; }
+    .logo .mente { color:var(--naranja); }
+    .logo .clara { color:var(--dorado); }
+    .lema { font-weight:700; margin:.8rem 0 0; }
+    .olas { display:block; width:100%; height:40px; margin-top:1.2rem; }
+
+    main { max-width:720px; margin:0 auto; padding:0 1rem 3rem; }
+    h1 { text-align:center; font-size:clamp(1.5rem,5vw,2rem); margin:1rem 0 .3rem; }
+    .intro { text-align:center; margin:0 auto 1.5rem; max-width:560px; }
+    .aviso { display:flex; gap:.6rem; justify-content:center; flex-wrap:wrap; margin:0 0 1.5rem; padding:0; list-style:none; }
+    .aviso li { border:2px solid var(--dorado); border-radius:999px; padding:.15rem .9rem; font-weight:600; font-size:.95rem; }
+
+    /* Cajas de pregunta */
+    fieldset, .pregunta { background:#fff; border:1px solid rgba(30,42,94,.25); border-left:6px solid var(--dorado); border-radius:8px; padding:1rem 1.1rem; margin:0 0 1rem; }
+    legend { font-weight:700; padding:0 .4rem; }
+    .tema { display:flex; align-items:center; gap:.7rem; font-size:1.35rem; margin:2rem 0 .8rem; padding-bottom:.4rem; border-bottom:3px solid var(--dorado); color:var(--tinta); }
+    .tema .icono { background:var(--tinta); border-radius:50%; width:2.4rem; height:2.4rem; display:inline-flex; align-items:center; justify-content:center; font-size:1.2rem; flex:none; }
+    .enunciado { font-weight:700; margin:0 0 .6rem; }
+    .num { display:inline-flex; align-items:center; justify-content:center; background:var(--tinta); color:var(--hueso); border-radius:50%; width:1.8rem; height:1.8rem; font-size:.9rem; margin-right:.5rem; }
+    label { display:block; margin:.35rem 0; cursor:pointer; }
+    .escala { display:flex; flex-wrap:wrap; gap:.5rem 1.3rem; }
+    .escala label { display:inline-block; font-weight:700; }
+    .extremos { font-size:.9rem; margin:.3rem 0 0; }
+    select, textarea { width:100%; padding:.55rem; font:inherit; color:var(--tinta); background:var(--hueso); border:2px solid var(--tinta); border-radius:6px; }
+    input[type="radio"], input[type="checkbox"] { accent-color:var(--tinta); width:1.1rem; height:1.1rem; vertical-align:middle; margin-right:.3rem; }
+
+    .boton { display:block; margin:1.5rem auto 0; background:var(--naranja); color:var(--tinta); font-weight:800; font-size:1.25rem; padding:.9rem 2.2rem; border:3px solid var(--tinta); border-radius:999px; cursor:pointer; font-family:inherit; }
+    .boton:hover { filter:brightness(.93); }
+    .boton:disabled { opacity:.5; cursor:not-allowed; }
+    #estado { text-align:center; font-weight:600; }
+    .error { color:var(--error); font-weight:700; margin:.4rem 0 0; }
+    #resumen-errores { border:2px solid var(--error); color:var(--error); font-weight:700; border-radius:8px; padding:.8rem 1rem; margin-bottom:1rem; background:#fff; }
+    #final { text-align:center; background:#fff; border:3px solid var(--tinta); border-radius:12px; padding:1.5rem 1rem; margin-top:1rem; }
+    #final strong { font-size:1.3rem; }
+    .oculto { display:none; }
+    :focus-visible { outline:3px solid var(--naranja); outline-offset:2px; }
+
+    footer { background:var(--tinta); color:var(--hueso); text-align:center; padding:1.5rem 1rem; font-size:.95rem; border-top:6px solid var(--dorado); }
+    footer p { margin:.2rem 0; }
+    footer a { color:var(--hueso); }
+  </style>
+</head>
+<body>
+
+<div class="menu">
+  <nav aria-label="Menú principal">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="sueno.html">Descanso</a></li>
+      <li><a href="concentracion.html">Concentración</a></li>
+      <li><a href="ciberconvivencia.html">Ciberconvivencia</a></li>
+      <li><a href="desinformacion.html">Desinformación</a></li>
+      <li><a href="recursos.html">Recursos</a></li>
+      <li><a href="encuesta.html" aria-current="page">Encuesta</a></li>
+    </ul>
+  </nav>
+</div>
+
+<header class="portada">
+  <a class="logo" href="index.html" aria-label="Mente Clara, ir al inicio">
+    <svg viewBox="0 0 120 84" role="img" aria-label="Logotipo de Mente Clara: un sol sobre las olas">
+      <g stroke="#D9621C" stroke-width="4.5" stroke-linecap="round">
+        <line x1="60" y1="25" x2="60" y2="12"/>
+        <line x1="44.5" y1="29.9" x2="37.6" y2="19.6"/>
+        <line x1="75.5" y1="29.9" x2="82.4" y2="19.6"/>
+        <line x1="34.6" y1="42.8" x2="22.8" y2="38.2"/>
+        <line x1="85.4" y1="42.8" x2="97.2" y2="38.2"/>
+      </g>
+      <path d="M38 54 A22 22 0 0 1 82 54 Z" fill="#B8860B"/>
+      <g fill="none" stroke="#B8860B" stroke-width="3.8" stroke-linecap="round">
+        <path d="M22 64 q9.5 -9 19 0 t19 0 t19 0 t19 0"/>
+        <path d="M22 74 q9.5 -9 19 0 t19 0 t19 0 t19 0"/>
+      </g>
+    </svg>
+    <span class="nombre"><span class="mente">MENTE</span><br><span class="clara">CLARA</span></span>
+  </a>
+  <p class="lema">Claridad en la red, calma en tu cabeza</p>
+  <svg class="olas" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 20 Q 50 0 100 20 T 200 20 T 300 20 T 400 20 T 500 20 T 600 20 T 700 20 T 800 20 T 900 20 T 1000 20 T 1100 20 T 1200 20" fill="none" stroke="#B8860B" stroke-width="3"/>
+  </svg>
+</header>
+
+<main>
+  <h1>Encuesta sobre hábitos digitales</h1>
+  <p class="intro">Cuéntanos cómo usas la tecnología. No hay respuestas buenas ni malas, y con tus respuestas haremos gráficos reales para nuestro proyecto.</p>
+  <ul class="aviso">
+    <li>Anónima</li>
+    <li>5 minutos</li>
+    <li>Sin datos personales</li>
+  </ul>
+
+  <form id="formulario" novalidate>
+    <div id="resumen-errores" class="oculto" role="alert" tabindex="-1"></div>
+
+    <fieldset>
+      <legend>Antes de empezar</legend>
+      <p>Esta encuesta forma parte de un trabajo de clase sobre hábitos digitales. Es <strong>anónima</strong>: no pedimos nombre, correo ni ningún dato que te identifique. Usaremos tus respuestas solo para hacer gráficos y conclusiones. Solo las cuatro autoras de la web y nuestro profesor veremos los datos, y los borraremos al terminar el curso. Puedes dejar de contestar cuando quieras.</p>
+      <label><input type="checkbox" id="consentimiento"> He leído esto y acepto participar.</label>
+      <p class="error" id="error-consentimiento"></p>
+    </fieldset>
+
+    <div id="preguntas"></div>
+
+    <button type="submit" class="boton" id="enviar">Enviar respuestas</button>
+    <p id="estado" role="status"></p>
+  </form>
+
+  <div id="final" class="oculto" role="status" tabindex="-1">
+    <strong>✔ ¡Gracias! Tu respuesta se ha registrado.</strong>
+    <p>Ya has participado: no puedes enviar otra desde este navegador.</p>
+    <p><a href="index.html">Volver al inicio</a></p>
+  </div>
+</main>
+
+<footer>
+  <p><strong>MENTE CLARA</strong> · Claridad en la red, calma en tu cabeza</p>
+  <p>Lara, Paula, Elsa y Lucía · TIC II, 2.º Bachillerato · 2026</p>
+  <p><a href="creditos.html">Fuentes y créditos</a></p>
+</footer>
+
+<script>
+// ===== CONEXIÓN CON SUPABASE =====
+const SUPABASE_URL = "https://jwsppajlehidygeztjjh.supabase.co";
+const SUPABASE_KEY = "sb_publishable_IkN5O5kxEd2kG3aBPAiiFg_0CvoJkf1";
+const TABLA = "respuestas";
+
+// ===== TEMAS (títulos de cada bloque) =====
+const TEMAS = {
+  perfil: { titulo: "Sobre ti", icono: "🙂" },
+  sueno: { titulo: "Descanso y sueño", icono: "🌙" },
+  estudio: { titulo: "Concentración y estudio", icono: "📚" },
+  convivencia: { titulo: "Ciberconvivencia", icono: "💬" },
+  info: { titulo: "Desinformación", icono: "🔍" },
+  final: { titulo: "Para terminar", icono: "✨" }
+};
+
+// ===== LAS PREGUNTAS =====
+const PREGUNTAS = [
+  { tema: "perfil", id: "edad", tipo: "lista", texto: "¿Qué edad tienes?",
+    opciones: ["12-13", "14-15", "16-17", "18-25", "26 o más"] },
+
+  { tema: "perfil", id: "curso", tipo: "lista", texto: "¿Qué estás estudiando?",
+    opcionesSegun: { campo: "edad", mapa: {
+      "12-13": ["1.º ESO", "2.º ESO", "Otro"],
+      "14-15": ["3.º ESO", "4.º ESO", "1.º Bachillerato", "Formación Profesional", "Otro"],
+      "16-17": ["4.º ESO", "1.º Bachillerato", "2.º Bachillerato", "Formación Profesional", "Otro"],
+      "18-25": ["2.º Bachillerato", "Formación Profesional", "Universidad", "Trabajo", "Otro"],
+      "26 o más": ["Universidad", "Trabajo", "Otro"] } } },
+
+  { tema: "sueno", id: "movil_noche", tipo: "unica", texto: "Son las 00:30 y estás en la cama. ¿Dónde está tu móvil y qué haces con él?",
+    opciones: ["Cargando lejos de la cama", "En la mesita, sin usarlo", "Lo uso un rato y lo dejo", "Lo uso hasta que me duermo", "Otra cosa"] },
+
+  { tema: "sueno", id: "movil_uso", tipo: "multiple", texto: "¿Qué sueles hacer con el móvil en la cama?",
+    mostrarSi: { id: "movil_noche", valores: ["Lo uso un rato y lo dejo", "Lo uso hasta que me duermo"] },
+    opciones: ["Redes sociales", "Vídeos", "Chats", "Juegos", "Música o podcasts", "Otra cosa"] },
+
+  { tema: "sueno", id: "hora_dormir", tipo: "lista", texto: "En una noche normal entre semana, ¿a qué hora te duermes?",
+    opciones: ["Antes de las 22:00", "22:00-23:00", "23:00-00:00", "00:00-01:00", "Después de la 1:00"] },
+
+  { tema: "sueno", id: "despertar", tipo: "escala", texto: "Cuando suena el despertador, ¿cómo te sientes?",
+    extremos: ["agotado/a", "con energía"] },
+
+  { tema: "estudio", id: "movil_estudio", tipo: "unica", texto: "Tienes una hora para estudiar. ¿Dónde está tu móvil?",
+    opciones: ["En otra habitación", "Dentro de la mochila", "Boca abajo en la mesa", "Boca arriba, a la vista", "Lo uso para estudiar"] },
+
+  { tema: "estudio", id: "tecno_estudio", tipo: "multiple", texto: "¿Para qué usas la tecnología cuando estudias?",
+    opciones: ["Buscar información", "Vídeos explicativos", "Apps de notas o flashcards", "IA para resolver dudas", "Música para concentrarme", "Otra cosa", "No la uso para estudiar"] },
+
+  { tema: "convivencia", id: "chat_burla", tipo: "unica", texto: "En un grupo de chat empiezan a burlarse de alguien. ¿Qué sueles hacer?",
+    opciones: ["Intervengo en el chat", "Hablo en privado con esa persona", "Aviso a un adulto", "Lo ignoro", "Me salgo del grupo", "Depende"] },
+
+  { tema: "convivencia", id: "vivido_ciberacoso", tipo: "unica", texto: "¿Has vivido o visto alguna situación así?",
+    opciones: ["Sí", "No", "Prefiero no contestar"] },
+
+  { tema: "convivencia", id: "ayuda_ciberacoso", tipo: "unica", texto: "En ese momento, ¿había alguien a quien pudieras pedir ayuda?",
+    mostrarSi: { id: "vivido_ciberacoso", valores: ["Sí"] },
+    opciones: ["Sí", "Creo que sí", "No"] },
+
+  { tema: "convivencia", id: "internet_borde", tipo: "escala", texto: "¿Estás de acuerdo con la frase «En internet la gente es más borde que en persona»?",
+    extremos: ["nada de acuerdo", "totalmente de acuerdo"] },
+
+  { tema: "info", id: "mensaje_impactante", tipo: "unica", texto: "Te llega un mensaje impactante, reenviado muchas veces. ¿Qué haces?",
+    opciones: ["Lo comparto", "Lo busco en otras fuentes", "Pregunto a alguien", "Lo ignoro", "Depende de quién me lo envíe"] },
+
+  { tema: "info", id: "fuente_info", tipo: "lista", texto: "¿Por dónde te informas más?",
+    opciones: ["TikTok", "Instagram", "YouTube", "X", "Medios digitales", "TV o radio", "Familia y amigos", "IA o chatbots", "Otro"] },
+
+  { tema: "info", id: "imagen_ia", tipo: "escala", texto: "¿Cuánta seguridad tienes de distinguir una imagen real de otra creada con IA?",
+    extremos: ["ninguna", "total"] },
+
+  { tema: "final", id: "regla", tipo: "abierta", obligatoria: false,
+    texto: "Si pudieras poner una regla para todo el mundo en internet, ¿cuál sería? (opcional, no escribas datos personales)" }
+];
+
+// ===== CÓDIGO QUE DIBUJA Y CONTROLA EL FORMULARIO =====
+const form = document.getElementById("formulario");
+const CLAVE_ENVIADO = "encuesta_enviada_menteclara";
+const esc = (t) => String(t).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
+
+function campoHTML(p) {
+  if (p.tipo === "lista") {
+    const ops = (p.opciones || []).map((o) => `<option value="${esc(o)}">${o}</option>`).join("");
+    return `<select id="campo-${p.id}" name="${p.id}" aria-labelledby="enun-${p.id}"><option value="">Elige una opción</option>${ops}</select>`;
+  }
+  if (p.tipo === "unica" || p.tipo === "multiple") {
+    const tipoInput = p.tipo === "unica" ? "radio" : "checkbox";
+    return p.opciones.map((o) => `<label><input type="${tipoInput}" name="${p.id}" value="${esc(o)}"> ${o}</label>`).join("");
+  }
+  if (p.tipo === "escala") {
+    const nums = [1, 2, 3, 4, 5].map((n) => `<label><input type="radio" name="${p.id}" value="${n}"> ${n}</label>`).join("");
+    return `<div class="escala">${nums}</div><p class="extremos">1 = ${p.extremos[0]} · 5 = ${p.extremos[1]}</p>`;
+  }
+  return `<textarea id="campo-${p.id}" name="${p.id}" rows="3" maxlength="300" aria-labelledby="enun-${p.id}"></textarea>`;
+}
+
+let temaActual = "";
+PREGUNTAS.forEach((p, i) => {
+  const contenedor = document.getElementById("preguntas");
+  if (p.tema !== temaActual) {
+    temaActual = p.tema;
+    const h2 = document.createElement("h2");
+    h2.className = "tema";
+    h2.innerHTML = `<span class="icono" aria-hidden="true">${TEMAS[p.tema].icono}</span>${TEMAS[p.tema].titulo}`;
+    contenedor.appendChild(h2);
+  }
+  const div = document.createElement("div");
+  div.className = "pregunta";
+  div.id = "bloque-" + p.id;
+  div.innerHTML = `<p class="enunciado" id="enun-${p.id}"><span class="num">${i + 1}</span>${p.texto}</p>${campoHTML(p)}<p class="error" id="error-${p.id}"></p>`;
+  contenedor.appendChild(div);
+});
+
+function valor(p) {
+  if (p.tipo === "lista" || p.tipo === "abierta") return document.getElementById("campo-" + p.id).value.trim();
+  if (p.tipo === "multiple") return [...form.querySelectorAll(`input[name="${p.id}"]:checked`)].map((c) => c.value).join(", ");
+  const marcado = form.querySelector(`input[name="${p.id}"]:checked`);
+  return marcado ? marcado.value : "";
+}
+
+function visible(p) {
+  if (!p.mostrarSi) return true;
+  const padre = PREGUNTAS.find((q) => q.id === p.mostrarSi.id);
+  return p.mostrarSi.valores.includes(valor(padre));
+}
+function actualizarVisibilidad() {
+  PREGUNTAS.forEach((p) => document.getElementById("bloque-" + p.id).classList.toggle("oculto", !visible(p)));
+}
+
+function actualizarOpciones(p) {
+  const select = document.getElementById("campo-" + p.id);
+  const padre = PREGUNTAS.find((q) => q.id === p.opcionesSegun.campo);
+  const ops = p.opcionesSegun.mapa[valor(padre)] || [];
+  select.innerHTML = `<option value="">${ops.length ? "Elige una opción" : "Primero contesta la pregunta anterior"}</option>` +
+    ops.map((o) => `<option value="${esc(o)}">${o}</option>`).join("");
+  select.disabled = ops.length === 0;
+}
+PREGUNTAS.filter((p) => p.opcionesSegun).forEach(actualizarOpciones);
+actualizarVisibilidad();
+
+form.addEventListener("change", (e) => {
+  actualizarVisibilidad();
+  PREGUNTAS.filter((p) => p.opcionesSegun && p.opcionesSegun.campo === e.target.name).forEach(actualizarOpciones);
+});
+
+// ===== VALIDACIÓN =====
+function validar() {
+  const errores = {};
+  if (!document.getElementById("consentimiento").checked) errores.consentimiento = "Tienes que aceptar para continuar.";
+  PREGUNTAS.forEach((p) => {
+    if (!visible(p) || p.obligatoria === false) return;
+    if (!valor(p)) errores[p.id] = p.tipo === "multiple" ? "Marca al menos una opción." : "Contesta esta pregunta.";
+  });
+  return errores;
+}
+function mostrarErrores(errores) {
+  document.querySelectorAll(".error").forEach((e) => (e.textContent = ""));
+  Object.keys(errores).forEach((id) => (document.getElementById("error-" + id).textContent = "⚠ " + errores[id]));
+  const resumen = document.getElementById("resumen-errores");
+  const n = Object.keys(errores).length;
+  resumen.classList.toggle("oculto", n === 0);
+  resumen.textContent = n ? "Faltan " + n + " respuesta(s). Revisa los mensajes en rojo." : "";
+  if (n) resumen.focus();
+}
+
+// ===== ENVÍO A SUPABASE =====
+function mostrarFinal() {
+  form.classList.add("oculto");
+  const final = document.getElementById("final");
+  final.classList.remove("oculto");
+  final.focus();
+}
+if (localStorage.getItem(CLAVE_ENVIADO)) mostrarFinal();
+
+form.addEventListener("submit", async (evento) => {
+  evento.preventDefault();
+  const errores = validar();
+  mostrarErrores(errores);
+  if (Object.keys(errores).length) return;
+
+  const boton = document.getElementById("enviar");
+  const estado = document.getElementById("estado");
+  boton.disabled = true;
+  estado.textContent = "Enviando...";
+
+  const datos = {};
+  PREGUNTAS.forEach((p) => {
+    let v = visible(p) ? valor(p) : "";
+    if (v === "") v = null;
+    else if (p.tipo === "escala") v = Number(v);
+    datos[p.id] = v;
+  });
+
+  try {
+    const respuesta = await fetch(SUPABASE_URL + "/rest/v1/" + TABLA, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", apikey: SUPABASE_KEY, Prefer: "return=minimal" },
+      body: JSON.stringify(datos)
+    });
+    if (!respuesta.ok) throw new Error("Error " + respuesta.status);
+    localStorage.setItem(CLAVE_ENVIADO, "1");
+    mostrarFinal();
+  } catch (error) {
+    console.error(error);
+    estado.textContent = "No se ha podido enviar. Comprueba tu conexión e inténtalo de nuevo.";
+    boton.disabled = false;
+  }
+});
+</script>
+</body>
+</html>

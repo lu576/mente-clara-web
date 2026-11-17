@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Recursos | Mente Clara</title>
+  <style>
+    :root { --tinta:#1E2A5E; --naranja:#D9621C; --dorado:#B8860B; --hueso:#FBFAF6; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family:"Segoe UI",Roboto,Arial,sans-serif; background:var(--hueso); color:var(--tinta); line-height:1.7; font-size:1.08rem; }
+    .menu { background:var(--tinta); }
+    .menu nav { max-width:960px; margin:0 auto; padding:.4rem 1rem; }
+    .menu ul { list-style:none; display:flex; flex-wrap:wrap; justify-content:center; gap:.2rem 1.4rem; margin:0; padding:0; }
+    .menu a { color:var(--hueso); text-decoration:none; font-weight:600; padding:.45rem 0; display:inline-block; border-bottom:3px solid transparent; }
+    .menu a:hover, .menu a[aria-current="page"] { border-bottom-color:var(--naranja); }
+    .portada { text-align:center; padding:1.2rem 1rem 0; }
+    .logo { display:inline-flex; align-items:center; gap:1rem; text-decoration:none; }
+    .logo svg { width:80px; height:auto; }
+    .logo .nombre { font-family:"Century Gothic","Futura","Trebuchet MS",sans-serif; font-weight:700; font-size:1.8rem; letter-spacing:.25em; line-height:1.1; text-align:left; }
+    .logo .mente { color:var(--naranja); }
+    .logo .clara { color:var(--dorado); }
+    .olas { display:block; width:100%; height:30px; margin-top:.8rem; }
+    main { max-width:760px; margin:0 auto; padding:0 1rem 3rem; }
+    h1 { font-size:clamp(1.7rem,5vw,2.4rem); line-height:1.2; margin:1rem 0 .5rem; }
+    h2 { font-size:1.5rem; margin:2rem 0 .6rem; padding-bottom:.3rem; border-bottom:3px solid var(--dorado); }
+    .entradilla { font-size:1.2rem; font-weight:600; }
+    .dato { background:#fff; border:2px solid var(--tinta); border-left:10px solid var(--naranja); border-radius:8px; padding:1rem 1.2rem; margin:1.5rem 0; }
+    .dato strong { display:block; font-size:1.3rem; }
+    .dato small { display:block; margin-top:.4rem; }
+    .consejos { background:#fff; border:3px solid var(--tinta); border-radius:12px; padding:1rem 1.4rem 1.2rem; margin:2rem 0; }
+    .consejos h2 { border:0; margin-top:.5rem; }
+    .consejos ul { list-style:none; padding:0; margin:0; }
+    .consejos li { padding:.5rem 0 .5rem 2rem; position:relative; border-bottom:1px solid rgba(30,42,94,.2); }
+    .consejos li:last-child { border-bottom:0; }
+    .consejos li::before { content:"✔"; position:absolute; left:0; color:var(--naranja); font-weight:700; }
+    .fuentes { font-size:.95rem; }
+    .boton { display:inline-block; background:var(--naranja); color:var(--tinta); font-weight:800; font-size:1.2rem; padding:.8rem 1.8rem; border:3px solid var(--tinta); border-radius:999px; text-decoration:none; }
+    a { color:var(--tinta); }
+    :focus-visible { outline:3px solid var(--naranja); outline-offset:2px; }
+    footer { background:var(--tinta); color:var(--hueso); text-align:center; padding:1.5rem 1rem; font-size:.95rem; border-top:6px solid var(--dorado); }
+    footer p { margin:.2rem 0; } footer a { color:var(--hueso); }
+    h3 { font-size:1.2rem; margin:1.2rem 0 .3rem; }
+    .consejos ol { margin:0; padding-left:1.4rem; }
+    .consejos ol li { padding-left:.4rem; }
+    .consejos ol li::before { content:none; }
+    details { background:#fff; border:2px solid var(--tinta); border-radius:8px; padding:.6rem 1rem; margin:.8rem 0; }
+    summary { cursor:pointer; font-weight:700; }
+    .recurso { background:#fff; border:2px solid var(--tinta); border-left:8px solid var(--dorado); border-radius:8px; padding:.8rem 1.1rem; margin:1rem 0; }
+    .recurso h3 { margin:.1rem 0 .3rem; }
+    .recurso p { margin:.3rem 0; }
+    .etiqueta { display:inline-block; border:2px solid var(--tinta); border-radius:999px; padding:0 .7rem; font-size:.85rem; font-weight:700; }
+    .video { position:relative; padding-bottom:56.25%; height:0; margin:.6rem 0; }
+    .video iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+    figure { margin:1.5rem 0; } figure img { max-width:100%; height:auto; border-radius:8px; }
+  </style>
+</head>
+<body>
+<div class="menu">
+  <nav aria-label="Menú principal">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="sueno.html">Descanso</a></li>
+      <li><a href="concentracion.html">Concentración</a></li>
+      <li><a href="ciberconvivencia.html">Ciberconvivencia</a></li>
+      <li><a href="desinformacion.html">Desinformación</a></li>
+      <li><a href="recursos.html">Recursos</a></li>
+      <li><a href="encuesta.html">Encuesta</a></li>
+    </ul>
+  </nav>
+</div>
+
+<header class="portada">
+  <a class="logo" href="index.html" aria-label="Mente Clara, ir al inicio">
+    <svg viewBox="0 0 120 84" role="img" aria-label="Logotipo de Mente Clara: un sol sobre las olas">
+      <g stroke="#D9621C" stroke-width="4.5" stroke-linecap="round">
+        <line x1="60" y1="25" x2="60" y2="12"/><line x1="44.5" y1="29.9" x2="37.6" y2="19.6"/><line x1="75.5" y1="29.9" x2="82.4" y2="19.6"/>
+        <line x1="34.6" y1="42.8" x2="22.8" y2="38.2"/><line x1="85.4" y1="42.8" x2="97.2" y2="38.2"/>
+      </g>
+      <path d="M38 54 A22 22 0 0 1 82 54 Z" fill="#B8860B"/>
+      <g fill="none" stroke="#B8860B" stroke-width="3.8" stroke-linecap="round">
+        <path d="M22 64 q9.5 -9 19 0 t19 0 t19 0 t19 0"/><path d="M22 74 q9.5 -9 19 0 t19 0 t19 0 t19 0"/>
+      </g>
+    </svg>
+    <span class="nombre"><span class="mente">MENTE</span><br><span class="clara">CLARA</span></span>
+  </a>
+  <svg class="olas" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 20 Q 50 0 100 20 T 200 20 T 300 20 T 400 20 T 500 20 T 600 20 T 700 20 T 800 20 T 900 20 T 1000 20 T 1100 20 T 1200 20" fill="none" stroke="#B8860B" stroke-width="3"/>
+  </svg>
+</header>
+
+<main>
+
+  <h1>Recursos recomendados</h1>
+  <p class="entradilla">Una selección cuidada para seguir aprendiendo, organizada por temas.</p>
+
+  <h2>Descanso y sueño</h2>
+  <article class="recurso">
+    <h3>Infancia y adolescencia: salud y hábitos</h3>
+    <p><span class="etiqueta">Guía</span> · Escuela de Pacientes, Junta de Castilla y León (Sacyl)</p>
+    <p>Es una guía oficial de nuestra comunidad. Nos sirve para saber cuántas horas hay que dormir en la adolescencia y qué hábitos con pantallas se recomiendan. <a href="https://www.saludcastillayleon.es/escueladepacientes/es/ciudadania/infancia-adolescencia">Abrir el recurso</a></p>
+  </article>
+  <article class="recurso">
+    <h3>Nuevas recomendaciones sobre pantallas en infancia y adolescencia</h3>
+    <p><span class="etiqueta">Artículo</span> · Asociación Española de Pediatría (AEP)</p>
+    <p>Lo recomendamos porque lo firman pediatras y explica de forma clara cuánto tiempo de pantalla es razonable según la edad. <a href="https://enfamilia.aeped.es/printpdf/noticias/nuevas-recomendaciones-sobre-pantallas-en-infancia-adolescencia">Abrir el recurso</a></p>
+  </article>
+  <article class="recurso">
+    <h3>Modo descanso y bienestar digital del móvil</h3>
+    <p><span class="etiqueta">Herramienta</span> · Tu propio teléfono (Bienestar digital en Android, Tiempo de uso en iPhone)</p>
+    <p>Está ya instalada en el móvil y permite programar una hora de desconexión y silenciar notificaciones por la noche. Es la forma más fácil de empezar.</p>
+  </article>
+  <!-- 🎬 VÍDEO DE DESCANSO: cuando elijáis el vídeo, quitad estos símbolos de comentario y cambiad VIDEO_ID, el título y la descripción.
+  <article class="recurso">
+    <h3>TÍTULO DEL VÍDEO</h3>
+    <p><span class="etiqueta">Vídeo</span> · CANAL O AUTORÍA</p>
+    <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID" title="DESCRIBID EL VÍDEO" allowfullscreen loading="lazy"></iframe></div>
+    <p>POR QUÉ LO RECOMENDÁIS.</p>
+  </article>
+  -->
+
+  <h2>Concentración y estudio</h2>
+  <article class="recurso">
+    <h3>How to sharpen your attention and meet your goals</h3>
+    <p><span class="etiqueta">Artículo (en inglés)</span> · UC Newsroom, Universidad de California</p>
+    <p>Recoge consejos de la investigadora Gloria Mark sobre atención y distracciones. Lo recomendamos porque viene de una universidad y habla con datos. <a href="https://www.universityofcalifornia.edu/news/how-sharpen-your-attention-and-meet-your-goals-2024">Abrir el recurso</a></p>
+  </article>
+  <article class="recurso">
+    <h3>Temporizador Pomodoro</h3>
+    <p><span class="etiqueta">Herramienta</span> · Cualquier reloj o temporizador del móvil</p>
+    <p>Sirve para estudiar 25 minutos y descansar 5. Lo recomendamos porque es gratis, no hace falta instalar nada y cada persona puede ajustar los tiempos a su ritmo.</p>
+  </article>
+  <article class="recurso">
+    <h3>Modo concentración o «no molestar»</h3>
+    <p><span class="etiqueta">Herramienta</span> · Tu propio teléfono</p>
+    <p>Silencia las notificaciones mientras estudias sin tener que apagar el móvil, que a veces lo necesitas para buscar o apuntar algo.</p>
+  </article>
+  <!-- 🎬 VÍDEO DE CONCENTRACIÓN: cuando elijáis el vídeo, quitad estos símbolos de comentario y cambiad VIDEO_ID, el título y la descripción.
+  <article class="recurso">
+    <h3>TÍTULO DEL VÍDEO</h3>
+    <p><span class="etiqueta">Vídeo</span> · CANAL O AUTORÍA</p>
+    <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID" title="DESCRIBID EL VÍDEO" allowfullscreen loading="lazy"></iframe></div>
+    <p>POR QUÉ LO RECOMENDÁIS.</p>
+  </article>
+  -->
+
+  <h2>Ciberconvivencia y ciberacoso</h2>
+  <article class="recurso">
+    <h3>Los observadores, clave frente al ciberacoso</h3>
+    <p><span class="etiqueta">Artículo y vídeo</span> · INCIBE (Internet Segura for Kids)</p>
+    <p>Explica qué puede hacer quien presencia un caso de ciberacoso. Incluye un vídeo animado con consejos y nos pareció muy claro. <a href="https://www.incibe.es/menores/blog/los-observadores-clave-frente-al-ciberacoso">Abrir el recurso</a></p>
+  </article>
+  <article class="recurso">
+    <h3>Línea de Ayuda en Ciberseguridad 017</h3>
+    <p><span class="etiqueta">Teléfono de ayuda</span> · INCIBE</p>
+    <p>Es un servicio gratuito y confidencial para pedir ayuda sobre ciberacoso y otros problemas en internet. Lo recomendamos porque es oficial y siempre puede ser el primer paso. <a href="https://www.incibe.es/menores/ayuda">Abrir el recurso</a></p>
+  </article>
+  <article class="recurso">
+    <h3>Buenos hábitos contra el ciberacoso en el aula</h3>
+    <p><span class="etiqueta">Guía</span> · INCIBE (Internet Segura for Kids)</p>
+    <p>Reúne hábitos sencillos para prevenir el ciberacoso en clase y en los grupos de chat. <a href="https://www.incibe.es/menores/blog/buenos-habitos-contra-el-ciberacoso-en-el-aula">Abrir el recurso</a></p>
+  </article>
+  <!-- 🎬 VÍDEO DE CIBERCONVIVENCIA: cuando elijáis el vídeo, quitad estos símbolos de comentario y cambiad VIDEO_ID, el título y la descripción.
+  <article class="recurso">
+    <h3>TÍTULO DEL VÍDEO</h3>
+    <p><span class="etiqueta">Vídeo</span> · CANAL O AUTORÍA</p>
+    <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID" title="DESCRIBID EL VÍDEO" allowfullscreen loading="lazy"></iframe></div>
+    <p>POR QUÉ LO RECOMENDÁIS.</p>
+  </article>
+  -->
+
+  <h2>Desinformación y pensamiento crítico</h2>
+  <article class="recurso">
+    <h3>Pasos para contrastar una noticia</h3>
+    <p><span class="etiqueta">Guía</span> · INCIBE (Oficina de Seguridad del Internauta)</p>
+    <p>Una guía corta con los pasos para comprobar si una noticia es fiable antes de compartirla. <a href="https://www.incibe.es/ciudadania/blog/pasos-para-contrastar-una-noticia">Abrir el recurso</a></p>
+  </article>
+  <article class="recurso">
+    <h3>La caja de herramientas de verificación</h3>
+    <p><span class="etiqueta">Herramientas</span> · Maldita.es</p>
+    <p>Reúne herramientas para comprobar imágenes, vídeos y datos. La recomendamos porque es de una organización que verifica bulos todos los días. <a href="https://maldita.es/malditobulo/educacion-la-caja-de-herramientas-de-verificacion-para-que-no-te-la-cuelen">Abrir el recurso</a></p>
+  </article>
+  <article class="recurso">
+    <h3>La llave contra la desinformación de los menores en Internet</h3>
+    <p><span class="etiqueta">Artículo, vídeo y actividades</span> · INCIBE (Internet Segura for Kids)</p>
+    <p>Explica cómo detectar noticias falsas y enlaza con un vídeo y con actividades para practicar. <a href="https://www.incibe.es/menores/blog/la-llave-contra-la-desinformacion-de-los-menores-en-internet">Abrir el recurso</a></p>
+  </article>
+  <!-- 🎬 VÍDEO DE DESINFORMACIÓN: cuando elijáis el vídeo, quitad estos símbolos de comentario y cambiad VIDEO_ID, el título y la descripción.
+  <article class="recurso">
+    <h3>TÍTULO DEL VÍDEO</h3>
+    <p><span class="etiqueta">Vídeo</span> · CANAL O AUTORÍA</p>
+    <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID" title="DESCRIBID EL VÍDEO" allowfullscreen loading="lazy"></iframe></div>
+    <p>POR QUÉ LO RECOMENDÁIS.</p>
+  </article>
+  -->
+
+  <h2>Nuestra infografía</h2>
+  <!-- 🖼 INFOGRAFÍA PROPIA: cuando la tengáis hecha en Canva y subida al repositorio con el nombre infografia-sueno.png, quitad estos símbolos de comentario y escribid el texto alternativo.
+  <figure>
+    <img src="infografia-sueno.png" alt="DESCRIBID LO QUE DICE LA INFOGRAFÍA">
+    <figcaption>Infografía de elaboración propia: Lara, Paula, Elsa y Lucía.</figcaption>
+  </figure>
+  -->
+
+</main>
+
+<footer>
+  <p><strong>MENTE CLARA</strong> · Claridad en la red, calma en tu cabeza</p>
+  <p>Lara, Paula, Elsa y Lucía · TIC II, 2.º Bachillerato · 2026</p>
+  <p><a href="creditos.html">Fuentes y créditos</a></p>
+</footer>
+
+<script>
+const archivo = location.pathname.split("/").pop() || "index.html";
+document.querySelectorAll(".menu a").forEach((a) => {
+  if (a.getAttribute("href") === archivo) a.setAttribute("aria-current", "page");
+});
+</script>
+</body>
+</html>

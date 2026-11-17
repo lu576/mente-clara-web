@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Descanso y sueño | Mente Clara</title>
+  <style>
+    :root { --tinta:#1E2A5E; --naranja:#D9621C; --dorado:#B8860B; --hueso:#FBFAF6; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family:"Segoe UI",Roboto,Arial,sans-serif; background:var(--hueso); color:var(--tinta); line-height:1.7; font-size:1.08rem; }
+    .menu { background:var(--tinta); }
+    .menu nav { max-width:960px; margin:0 auto; padding:.4rem 1rem; }
+    .menu ul { list-style:none; display:flex; flex-wrap:wrap; justify-content:center; gap:.2rem 1.4rem; margin:0; padding:0; }
+    .menu a { color:var(--hueso); text-decoration:none; font-weight:600; padding:.45rem 0; display:inline-block; border-bottom:3px solid transparent; }
+    .menu a:hover, .menu a[aria-current="page"] { border-bottom-color:var(--naranja); }
+    .portada { text-align:center; padding:1.2rem 1rem 0; }
+    .logo { display:inline-flex; align-items:center; gap:1rem; text-decoration:none; }
+    .logo svg { width:80px; height:auto; }
+    .logo .nombre { font-family:"Century Gothic","Futura","Trebuchet MS",sans-serif; font-weight:700; font-size:1.8rem; letter-spacing:.25em; line-height:1.1; text-align:left; }
+    .logo .mente { color:var(--naranja); }
+    .logo .clara { color:var(--dorado); }
+    .olas { display:block; width:100%; height:30px; margin-top:.8rem; }
+    main { max-width:760px; margin:0 auto; padding:0 1rem 3rem; }
+    h1 { font-size:clamp(1.7rem,5vw,2.4rem); line-height:1.2; margin:1rem 0 .5rem; }
+    h2 { font-size:1.5rem; margin:2rem 0 .6rem; padding-bottom:.3rem; border-bottom:3px solid var(--dorado); }
+    .entradilla { font-size:1.2rem; font-weight:600; }
+    .dato { background:#fff; border:2px solid var(--tinta); border-left:10px solid var(--naranja); border-radius:8px; padding:1rem 1.2rem; margin:1.5rem 0; }
+    .dato strong { display:block; font-size:1.3rem; }
+    .dato small { display:block; margin-top:.4rem; }
+    .consejos { background:#fff; border:3px solid var(--tinta); border-radius:12px; padding:1rem 1.4rem 1.2rem; margin:2rem 0; }
+    .consejos h2 { border:0; margin-top:.5rem; }
+    .consejos ul { list-style:none; padding:0; margin:0; }
+    .consejos li { padding:.5rem 0 .5rem 2rem; position:relative; border-bottom:1px solid rgba(30,42,94,.2); }
+    .consejos li:last-child { border-bottom:0; }
+    .consejos li::before { content:"✔"; position:absolute; left:0; color:var(--naranja); font-weight:700; }
+    .fuentes { font-size:.95rem; }
+    .boton { display:inline-block; background:var(--naranja); color:var(--tinta); font-weight:800; font-size:1.2rem; padding:.8rem 1.8rem; border:3px solid var(--tinta); border-radius:999px; text-decoration:none; }
+    a { color:var(--tinta); }
+    :focus-visible { outline:3px solid var(--naranja); outline-offset:2px; }
+    footer { background:var(--tinta); color:var(--hueso); text-align:center; padding:1.5rem 1rem; font-size:.95rem; border-top:6px solid var(--dorado); }
+    footer p { margin:.2rem 0; } footer a { color:var(--hueso); }
+    h3 { font-size:1.2rem; margin:1.2rem 0 .3rem; }
+    .consejos ol { margin:0; padding-left:1.4rem; }
+    .consejos ol li { padding-left:.4rem; }
+    .consejos ol li::before { content:none; }
+    details { background:#fff; border:2px solid var(--tinta); border-radius:8px; padding:.6rem 1rem; margin:.8rem 0; }
+    summary { cursor:pointer; font-weight:700; }
+    .recurso { background:#fff; border:2px solid var(--tinta); border-left:8px solid var(--dorado); border-radius:8px; padding:.8rem 1.1rem; margin:1rem 0; }
+    .recurso h3 { margin:.1rem 0 .3rem; }
+    .recurso p { margin:.3rem 0; }
+    .etiqueta { display:inline-block; border:2px solid var(--tinta); border-radius:999px; padding:0 .7rem; font-size:.85rem; font-weight:700; }
+    .video { position:relative; padding-bottom:56.25%; height:0; margin:.6rem 0; }
+    .video iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+    figure { margin:1.5rem 0; } figure img { max-width:100%; height:auto; border-radius:8px; }
+  </style>
+</head>
+<body>
+<div class="menu">
+  <nav aria-label="Menú principal">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="sueno.html">Descanso</a></li>
+      <li><a href="concentracion.html">Concentración</a></li>
+      <li><a href="ciberconvivencia.html">Ciberconvivencia</a></li>
+      <li><a href="desinformacion.html">Desinformación</a></li>
+      <li><a href="recursos.html">Recursos</a></li>
+      <li><a href="encuesta.html">Encuesta</a></li>
+    </ul>
+  </nav>
+</div>
+
+<header class="portada">
+  <a class="logo" href="index.html" aria-label="Mente Clara, ir al inicio">
+    <svg viewBox="0 0 120 84" role="img" aria-label="Logotipo de Mente Clara: un sol sobre las olas">
+      <g stroke="#D9621C" stroke-width="4.5" stroke-linecap="round">
+        <line x1="60" y1="25" x2="60" y2="12"/><line x1="44.5" y1="29.9" x2="37.6" y2="19.6"/><line x1="75.5" y1="29.9" x2="82.4" y2="19.6"/>
+        <line x1="34.6" y1="42.8" x2="22.8" y2="38.2"/><line x1="85.4" y1="42.8" x2="97.2" y2="38.2"/>
+      </g>
+      <path d="M38 54 A22 22 0 0 1 82 54 Z" fill="#B8860B"/>
+      <g fill="none" stroke="#B8860B" stroke-width="3.8" stroke-linecap="round">
+        <path d="M22 64 q9.5 -9 19 0 t19 0 t19 0 t19 0"/><path d="M22 74 q9.5 -9 19 0 t19 0 t19 0 t19 0"/>
+      </g>
+    </svg>
+    <span class="nombre"><span class="mente">MENTE</span><br><span class="clara">CLARA</span></span>
+  </a>
+  <svg class="olas" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 20 Q 50 0 100 20 T 200 20 T 300 20 T 400 20 T 500 20 T 600 20 T 700 20 T 800 20 T 900 20 T 1000 20 T 1100 20 T 1200 20" fill="none" stroke="#B8860B" stroke-width="3"/>
+  </svg>
+</header>
+
+<main>
+
+  <h1>El descanso también depende de la tecnología</h1>
+  <p class="entradilla">Lo que hace que mañana rindas y estés de mejor humor es dormir bien, y dormir no es perder el tiempo.</p>
+
+  <h2>¿Qué está pasando?</h2>
+  <p>Antes de descansar, muchas noches terminan con la frase «un vídeo más» en la cama. Cuando miras el móvil justo antes de dormir, tu cerebro sigue en activo: notificaciones, mensajes, contenido infinito. Eso hace que tu cuerpo no llegue a desconectar bien y acabes durmiendo más tarde y peor.</p>
+  <p>Los pediatras recomiendan evitar las pantallas antes de dormir y tener el dormitorio libre de ellas. Además, la Asociación Española de Pediatría advierte de que el uso excesivo de pantallas puede alterar el sueño.</p>
+
+  <div class="dato">
+    <strong>Los adolescentes necesitan dormir entre 8 y 10 horas cada noche.</strong>
+    <small>Fuente: Escuela de Pacientes, Junta de Castilla y León (Sacyl), consultado en noviembre de 2026. <a href="https://www.saludcastillayleon.es/escueladepacientes/es/ciudadania/infancia-adolescencia">Ver la fuente</a></small>
+  </div>
+
+  <h2>¿Por qué importa?</h2>
+  <p>Dormir lo suficiente mejora la memoria, la conducta, la concentración y el estado de ánimo de cada persona. Dicho de forma práctica: si duermes poco, estudias peor y te irritas antes. Y no es cuestión de fuerza de voluntad: las aplicaciones están diseñadas para que no desconectes.</p>
+
+  <section class="consejos">
+    <h2>Haz esto desde hoy</h2>
+    <ul>
+      <li>Carga el móvil fuera de la cama, en el pasillo o en una habitación de fuera.</li>
+      <li>Elige una hora de desconexión y ponla como alarma (por ejemplo, 30-60 minutos antes de dormir).</li>
+      <li>Usa un despertador normal, para no depender del móvil por la mañana.</li>
+      <li>Sustituye el último rato de pantalla por algo tranquilo: leer, música, estirarte o preparar la mochila.</li>
+      <li>Activa el modo descanso o «no molestar» de tu móvil por la noche.</li>
+    </ul>
+  </section>
+
+  <p><a class="boton" href="encuesta.html">Cuéntanos cómo lo haces tú: encuesta</a></p>
+
+  <section class="fuentes">
+    <h2>Fuentes</h2>
+    <ul>
+      <li>Escuela de Pacientes, Junta de Castilla y León (Sacyl). «Infancia y adolescencia». <a href="https://www.saludcastillayleon.es/escueladepacientes/es/ciudadania/infancia-adolescencia">https://www.saludcastillayleon.es/escueladepacientes/es/ciudadania/infancia-adolescencia</a></li>
+      <li>Asociación Española de Pediatría (AEP). «Nuevas recomendaciones sobre pantallas en infancia y adolescencia». 2025. <a href="https://enfamilia.aeped.es/printpdf/noticias/nuevas-recomendaciones-sobre-pantallas-en-infancia-adolescencia">https://enfamilia.aeped.es/printpdf/noticias/nuevas-recomendaciones-sobre-pantallas-en-infancia-adolescencia</a></li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  <p><strong>MENTE CLARA</strong> · Claridad en la red, calma en tu cabeza</p>
+  <p>Lara, Paula, Elsa y Lucía · TIC II, 2.º Bachillerato · 2026</p>
+  <p><a href="creditos.html">Fuentes y créditos</a></p>
+</footer>
+
+<script>
+const archivo = location.pathname.split("/").pop() || "index.html";
+document.querySelectorAll(".menu a").forEach((a) => {
+  if (a.getAttribute("href") === archivo) a.setAttribute("aria-current", "page");
+});
+</script>
+</body>
+</html>
